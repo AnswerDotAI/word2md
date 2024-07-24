@@ -1,0 +1,3 @@
+html2text
+python-fasthtml>=0.1.1
+
