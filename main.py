@@ -35,4 +35,4 @@ async def post(html: str):
         get_cts(h2t.handle(html))
     )
 
-run_uv()
+serve()
