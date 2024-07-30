@@ -9,22 +9,13 @@ def get_cts(s=''):
                  hx_post="/convert", hx_trigger="paste",
                  hx_vals="js:{'html': transformPastedHTML(event.clipboardData.getData('text/html'))}",
                  hx_target="#main",
-                 style="width: 100%; height: 80vh;"),
-                 Script("""
-    function copyToClipboard() {
-        navigator.clipboard.writeText(me('#pasteArea').textContent).then(_ => {
-            let btn = me('#copyBtn');
-            btn.textContent = 'Copied!';
-            sleep(2000).then(_ => btn.textContent = 'Copy');
-        });
-    }"""))
+                 style="width: 100%; height: 80vh;"))
 
 @rt("/")
 async def get():
     return Titled(
         "Word to Markdown Converter",
-        Div(P(),get_cts(), id='main')
-    )
+        Div(P(),get_cts(), id='main'))
 
 @rt("/convert")
 async def post(html: str):
@@ -36,3 +27,4 @@ async def post(html: str):
     )
 
 serve()
+

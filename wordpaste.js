@@ -1,4 +1,12 @@
-// From OpenSlides/openslides-client
+function copyToClipboard() {
+    navigator.clipboard.writeText(me('#pasteArea').textContent).then(_ => {
+        let btn = me('#copyBtn');
+        btn.textContent = 'Copied!';
+        sleep(2000).then(_ => btn.textContent = 'Copy');
+    });
+}
+
+// Remainder of this file is from OpenSlides/openslides-client with minor changes
 
 function unwrapNode(node) {
     const parent = node.parentNode;
